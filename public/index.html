@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Car Care App</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              accent: "#f59e42",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div class="max-w-2xl mx-auto py-10 px-4">
+      <div class="bg-white rounded-xl shadow p-6 mb-8 flex items-center gap-4">
+        <img
+          src="logo.png"
+          alt="Logo"
+          class="w-16 h-16 rounded-full border border-primary"
+        />
+        <div>
+          <h1 class="text-2xl font-bold text-primary">
+            Welcome, <span id="user-name" class="text-gray-800"></span>
+          </h1>
+          <p class="text-sm text-gray-500">
+            Your personalized car care dashboard
+          </p>
+        </div>
+      </div>
+
+      <section class="mb-8">
+        <h2
+          class="text-xl font-semibold text-accent mb-4 flex items-center gap-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-primary"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 13l2-2m0 0l7-7 7 7M13 5v6h6"
+            />
+          </svg>
+          Your Cars
+        </h2>
+        <div id="car-list" class="grid gap-4"></div>
+      </section>
+
+      <section>
+        <h2
+          class="text-xl font-semibold text-accent mb-4 flex items-center gap-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-primary"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m-6 0h6"
+            />
+          </svg>
+          Past Services
+        </h2>
+        <div id="services-list" class="grid gap-4"></div>
+      </section>
+
+      <footer class="mt-10 text-center text-xs text-gray-400">
+        &copy; 2025 Car Care App
+      </footer>
+
+      <script src="./js/axios.js"></script>
+      <script src="./js/auth.js"></script>
+      <script src="./js/user.js"></script>
+    </div>
+  </body>
+</html>

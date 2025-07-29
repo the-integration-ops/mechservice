@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      input:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* blue focus ring */
+        border-color: #2563eb; /* blue-600 */
+      }
+      button[type="submit"]:focus-visible {
+        outline-offset: 2px;
+        outline: 2px solid #2563eb;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center bg-gradient-to-tr from-blue-100 via-white to-blue-50 px-4"
+  >
+    <form
+      id="signup-form"
+      class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full"
+      aria-label="Sign up form"
+      novalidate
+    >
+      <div class="mb-6 flex justify-center">
+        <img
+          src="logo.png"
+          alt="Logo"
+          class="w-16 h-16 rounded-full border border-primary"
+        />
+      </div>
+
+      <h2
+        class="text-3xl font-extrabold text-center text-gray-900 mb-8 tracking-tight"
+      >
+        Create Your Account
+      </h2>
+
+      <label
+        for="firstName"
+        class="block text-sm font-semibold text-gray-700 mb-2"
+        >First Name</label
+      >
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        placeholder="John"
+        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition"
+        required
+        aria-required="true"
+      />
+      <label
+        for="lastName"
+        class="block text-sm font-semibold text-gray-700 mt-4 mb-2"
+        >Last Name</label
+      >
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        placeholder="Doe"
+        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition"
+        required
+        aria-required="true"
+      />
+
+      <label
+        for="email"
+        class="block text-sm font-semibold text-gray-700 mt-6 mb-2"
+        >Email Address</label
+      >
+      <input
+        type="email"
+        id="email"
+        name="email"
+        autocomplete="email"
+        placeholder="you@example.com"
+        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition"
+        required
+        aria-required="true"
+      />
+
+      <label
+        for="password"
+        class="block text-sm font-semibold text-gray-700 mt-6 mb-2"
+        >Password</label
+      >
+      <input
+        type="password"
+        id="password"
+        name="password"
+        autocomplete="new-password"
+        placeholder="••••••••"
+        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition"
+        required
+        aria-required="true"
+      />
+      <p class="text-xs text-gray-500 mt-1">
+        Use at least 8 characters, including a number and a symbol.
+      </p>
+
+      <button
+        type="submit"
+        class="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md shadow-md transition-colors duration-300 focus-visible:ring-4 focus-visible:ring-blue-300"
+      >
+        Sign Up
+      </button>
+
+      <div class="flex items-center mt-6">
+        <input
+          type="checkbox"
+          id="is_mechanic"
+          name="is_mechanic"
+          class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+        />
+        <label for="is_mechanic" class="ml-2 block text-sm text-gray-700">
+          Are you a mechanic?
+        </label>
+      </div>
+
+      <div id="shop-details" class="mt-6 hidden">
+        <label
+          for="shopName"
+          class="block text-sm font-semibold text-gray-700 mb-2"
+          >Shop Name</label
+        >
+        <input
+          type="text"
+          id="shopName"
+          name="shopName"
+          placeholder="Your Shop Name"
+          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition mb-4"
+        />
+        <label
+          for="shopLocation"
+          class="block text-sm font-semibold text-gray-700 mb-2"
+          >Shop Location</label
+        >
+        <input
+          type="text"
+          id="shopLocation"
+          name="shopLocation"
+          placeholder="Shop Location"
+          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition"
+        />
+      </div>
+
+      <p
+        id="error"
+        class="text-red-600 text-center text-sm mt-4 hidden"
+        role="alert"
+        aria-live="assertive"
+      ></p>
+
+      <p class="text-center text-sm text-gray-600 mt-6">
+        Already have an account?
+        <a
+          href="/login.html"
+          class="text-blue-600 hover:text-blue-700 font-medium underline"
+          >Log in here</a
+        >
+      </p>
+    </form>
+
+    <script src="./js/axios.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/signup.js"></script>
+    <script>
+      const isMechanicCheckbox = document.getElementById("is_mechanic");
+      const shopDetailsDiv = document.getElementById("shop-details");
+      isMechanicCheckbox.addEventListener("change", function () {
+        if (this.checked) {
+          shopDetailsDiv.classList.remove("hidden");
+        } else {
+          shopDetailsDiv.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
