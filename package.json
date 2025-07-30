@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon backend/server.js",
+    "prod": "node backend/server.js",
     "seed": "node backend/seeder/seed.js"
   },
   "author": "",
